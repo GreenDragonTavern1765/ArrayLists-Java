@@ -33,10 +33,8 @@ public class ArrayListMain {
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
 
-        System.out.println(tokenization("Hello World"));
-        System.out.println(tokenization("My name is Linux and I am a computer"));
-        System.out.println(tokenization("What is your name?"));
-        System.out.println(tokenization("I     hope you can      still\tread me"));
+        System.out.println(removeAll(myExample2, "Alpha"));
+        System.out.println(removeAll(myExample2, "Bravo"));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -82,5 +80,17 @@ public class ArrayListMain {
         for (int i = 0; i < out.length; i++)
             tokenList.add(out[i].replaceAll("[^a-zA-Z0-9]", ""));
         return tokenList;
+    }
+
+    /* Input an ArrayList, as well as the item to be removed
+       traverse the list and remove all instances of the item
+       finally return the modified list */
+    public static <E> ArrayList removeAll(ArrayList<E> testList, E item) {
+        for (int i = 0; i < testList.size(); i++) {
+            for (int j = 0; j < testList.size(); j++) {
+                if (testList.get(j) == item)
+                    testList.remove(j);
+            }
+        } return testList;
     }
 }
