@@ -5,6 +5,8 @@
 import java.util.*;
 
 public class ArrayListMain {
+
+    /* Main method where the ArrayLists are created */
     public static void main(String[] args) {
         // Test code arrayLists for the static methods
         ArrayList<Integer> exampleList1 = new ArrayList<>(
@@ -32,9 +34,6 @@ public class ArrayListMain {
                 Arrays.asList("Alpha", "Bravo", "Charlie", "Alpha", "Delta", "Delta", "Echo",
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
-
-        System.out.println(isPermutation(exampleList4, exampleList5));
-        System.out.println(isPermutation(exampleList1, exampleList2));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -113,4 +112,13 @@ public class ArrayListMain {
                 return false;
         } return true;
     }
+
+    /* Method will print the contents of the list
+       Utility method used to test values */
+    public static <E> void printListContents(ArrayList<E> testList) {
+        for (int i = 0; i < testList.size(); i++)
+            System.out.print(testList.get(i) + " ");
+        System.out.println();
+    }
+
 }
