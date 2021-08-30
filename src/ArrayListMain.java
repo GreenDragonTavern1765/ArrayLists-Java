@@ -33,10 +33,10 @@ public class ArrayListMain {
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
 
-        System.out.println(allMultiples(exampleList1, 5));
-        System.out.println(allMultiples(exampleList1, 4));
-        System.out.println(allMultiples(exampleList1, 3));
-        System.out.println(allMultiples(exampleList1, 2));
+        System.out.println(allStringsOfSize(exampleList3, 3));
+        System.out.println(allStringsOfSize(exampleList3, 2));
+        System.out.println(allStringsOfSize(exampleList3, 1));
+        System.out.println(allStringsOfSize(myExample2, 5));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -62,5 +62,15 @@ public class ArrayListMain {
                 multiple.add(testList.get(i));
             }
         } return multiple;
+    }
+
+    /* Takes in two parameters, arrayList of strings from above, as well as length
+       of the target strings. If the string has length given in arguments, add to list, then return list */
+    public static ArrayList<String> allStringsOfSize(ArrayList<String> testList, int length) {
+        ArrayList<String> stringList = new ArrayList<>();
+        for (int i = 0; i < testList.size(); i++) {
+            if (testList.get(i).length() == length)
+                stringList.add(testList.get(i));
+        } return stringList;
     }
 }
