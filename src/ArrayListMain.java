@@ -33,8 +33,8 @@ public class ArrayListMain {
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
 
-        System.out.println(removeAll(myExample2, "Alpha"));
-        System.out.println(removeAll(myExample2, "Bravo"));
+        System.out.println(isPermutation(exampleList4, exampleList5));
+        System.out.println(isPermutation(exampleList1, exampleList2));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -92,5 +92,25 @@ public class ArrayListMain {
                     testList.remove(j);
             }
         } return testList;
+    }
+
+    /* A method taht accepts two lists, finds wether they are permutations of each other
+       Duplicate lists created, sorted using Collections.sort(), finally, third loop will
+       determine if the elements line up, if they are identical, otherwise return false */
+    public static <E> boolean isPermutation(ArrayList<E> list1, ArrayList<E> list2) {
+        if (list1.size() != list2.size())
+            return false;
+        ArrayList sortedList1 = new ArrayList<E>();
+        ArrayList sortedList2 = new ArrayList<E>();
+        for (int i = 0; i < list1.size(); i++)
+            sortedList1.add(list1.get(i));
+        for (int i = 0; i < list2.size(); i++)
+            sortedList2.add(list2.get(i));
+        Collections.sort(sortedList1);
+        Collections.sort(sortedList2);
+        for (int i = 0; i < list1.size(); i++) {
+            if (sortedList1.get(i) != sortedList2.get(i))
+                return false;
+        } return true;
     }
 }
