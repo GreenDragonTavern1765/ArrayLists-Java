@@ -33,9 +33,10 @@ public class ArrayListMain {
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
 
-        System.out.println(unique(exampleList1));
-        System.out.println(unique(exampleList2));
-        System.out.println(unique(myExample2));
+        System.out.println(allMultiples(exampleList1, 5));
+        System.out.println(allMultiples(exampleList1, 4));
+        System.out.println(allMultiples(exampleList1, 3));
+        System.out.println(allMultiples(exampleList1, 2));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -49,5 +50,17 @@ public class ArrayListMain {
                 }
             }
         } return true;
+    }
+
+    /* Method takes in two arguments, arrayList from above, and integer value.
+       Traverse the arraylist, if element is multiple of value, then add to multiple list
+       finally return the list afterwards */
+    public static ArrayList<Integer> allMultiples(ArrayList<Integer> testList, int value) {
+        ArrayList<Integer> multiple = new ArrayList<>();
+        for (int i = 0; i < testList.size(); i++) {
+            if ((testList.get(i) % value == 0) && testList.get(i) >= value) {
+                multiple.add(testList.get(i));
+            }
+        } return multiple;
     }
 }
