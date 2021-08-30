@@ -33,10 +33,10 @@ public class ArrayListMain {
                         "Foxtrot", "Alpha", "Golf", "Juliet", "Hotel", "India", "Juliet",
                         "Kilo", "Foxtrot", "Bravo", "Bravo", "Alpha"));
 
-        System.out.println(allStringsOfSize(exampleList3, 3));
-        System.out.println(allStringsOfSize(exampleList3, 2));
-        System.out.println(allStringsOfSize(exampleList3, 1));
-        System.out.println(allStringsOfSize(myExample2, 5));
+        System.out.println(tokenization("Hello World"));
+        System.out.println(tokenization("My name is Linux and I am a computer"));
+        System.out.println(tokenization("What is your name?"));
+        System.out.println(tokenization("I     hope you can      still\tread me"));
     }
 
     /* Unique tests each element in the ArrayList using a nested loop
@@ -72,5 +72,15 @@ public class ArrayListMain {
             if (testList.get(i).length() == length)
                 stringList.add(testList.get(i));
         } return stringList;
+    }
+
+    /* Input string into method, break up the string into individual words
+       and then add each word to the arrayList, return the list at the end */
+    public static ArrayList<String> tokenization(String test) {
+        ArrayList<String> tokenList = new ArrayList<>();
+        String[] out = test.split(" ");
+        for (int i = 0; i < out.length; i++)
+            tokenList.add(out[i].replaceAll("[^a-zA-Z0-9]", ""));
+        return tokenList;
     }
 }
